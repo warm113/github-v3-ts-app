@@ -27,7 +27,7 @@ defineProps({
     default: () => {
       return {
         total: 0,
-        size: 10,
+        pageSize: 10,
         current: 1,
         showTotal: (total) => `共 ${total} 条数据`,
         showQuickJumper: true,

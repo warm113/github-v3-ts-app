@@ -1,10 +1,16 @@
 <template>
-  <div class="pape-content">
-    <hy-table :table="table" :pageInfo="pageInfo"></hy-table>
+  <div class="hyTable">
+    <a-table
+      :data-source="table.data"
+      :columns="table.columns"
+      rowKey="id"
+      :pagination="pageInfo"
+      @change="handleTableChange"
+      ><!--  :loading="tableLoading" -->
+    </a-table>
   </div>
 </template>
 <script setup lang="ts">
-import HyTable from '@/base-ui/table';
 import { defineProps } from 'vue';
 defineProps({
   table: {
@@ -16,17 +22,22 @@ defineProps({
       };
     },
   },
+  pageInfo: {
+    type: Object,
+    default: () => {
+      return {
+        total: 0,
+        pageSize: 10,
+        current: 1,
+        showTotal: (total) => `共 ${total} 条数据`,
+        showQuickJumper: true,
+        showSizeChanger: true,
+      };
+    },
+  },
 });
-const pageInfo = reactive({
-  total: 0,
-  size: 10,
-  current: 1,
-  showTotal: (total) => `共 ${total} 条数据`,
-  showQuickJumper: true,
-  showSizeChanger: true,
-});
-const getPageData = (query: any = {}) => {
-  
+const handleTableChange = () => {
+  console.log('handleTableChange');
 };
 </script>
-<style scoped lang="scss"></style>
+<style lang="scss"></style>
