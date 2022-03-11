@@ -1,6 +1,6 @@
 <template>
   <div class="rule">
-    <div class="addBtn">
+    <div class="py-5">
       <a-button type="primary" ghost>添加</a-button>
     </div>
     <page-content :table="table" />
@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import api from '@/api';
-console.log(api);
+// console.log(api.postVerification);
 const table = {};
 </script>
 
