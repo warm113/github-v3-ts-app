@@ -25,5 +25,8 @@ const pageInfo = reactive({
   showQuickJumper: true,
   showSizeChanger: true,
 });
+const getPageData = (query: any = {}) => {
+  
+};
 </script>
 <style scoped lang="scss"></style>

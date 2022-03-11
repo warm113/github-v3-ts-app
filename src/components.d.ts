@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     AButton: typeof import('ant-design-vue/es')['Button']
+    ATable: typeof import('ant-design-vue/es')['Table']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     EnProcess: typeof import('./components/EnProcess.md')['default']
@@ -15,6 +16,7 @@ declare module 'vue' {
     IPhCloudMoonBold: typeof import('~icons/ph/cloud-moon-bold')['default']
     IPhSunHorizonBold: typeof import('~icons/ph/sun-horizon-bold')['default']
     IRiArticleLine: typeof import('~icons/ri/article-line')['default']
+    PageContent: typeof import('./components/page-content/src/page-content.vue')['default']
     TheFooter: typeof import('./components/TheFooter.vue')['default']
     ZhProcess: typeof import('./components/ZhProcess.md')['default']
   }
