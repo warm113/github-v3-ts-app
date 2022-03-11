@@ -4,7 +4,7 @@
       :data-source="table.data"
       :columns="table.columns"
       rowKey="id"
-      :pagination="pagination"
+      :pagination="pageInfo"
       @change="handleTableChange"
       ><!--  :loading="tableLoading" -->
     </a-table>
@@ -12,7 +12,7 @@
 </template>
 <script setup lang="ts">
 import { defineProps } from 'vue';
-defindProps({
+defineProps({
   table: {
     type: Object,
     default: () => {
@@ -36,5 +36,8 @@ defindProps({
     },
   },
 });
+const handleTableChange = () => {
+  console.log('handleTableChange');
+};
 </script>
 <style lang="scss"></style>

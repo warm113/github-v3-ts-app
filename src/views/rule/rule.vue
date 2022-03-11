@@ -10,6 +10,7 @@
 <script setup lang="ts">
 import api from '@/api';
 console.log(api);
+const table = {};
 </script>
 
 <style lang="scss" scoped></style>
