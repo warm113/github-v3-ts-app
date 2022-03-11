@@ -36,6 +36,18 @@ defineProps({
     },
   },
 });
+const getPageData = (queryInfo: any = {}) => {
+  // if (!isQuery) return;
+  store.dispatch('system/getPageListAction', {
+    pageName: props.pageName,
+    queryInfo: {
+      offset: (pageInfo.value.currentPage - 1) * pageInfo.value.pageSize,
+      size: pageInfo.value.pageSize,
+      ...queryInfo,
+    },
+  });
+};
+getPageData();
 const handleTableChange = () => {
   console.log('handleTableChange');
 };
