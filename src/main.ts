@@ -6,6 +6,8 @@ import router from '@/router/index';
 // pinia
 import store from '@/store';
 import App from './App.vue';
+// api
+import api from './api';
 
 import 'virtual:windi.css';
 // Devtools: https://windicss.org/integrations/vite.html#design-in-devtools
@@ -23,5 +25,5 @@ const app = createApp(App);
 app.use(router).use(store);
 
 app.use(i18n);
-
+app.provide('$api', api);
 app.mount('#app');

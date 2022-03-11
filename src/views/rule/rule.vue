@@ -8,7 +8,8 @@
 </template>
 
 <script setup lang="ts">
-import api from '@/api';
+// import api from '@/api';
+const $api = inject('$api');
 // console.log(api.postVerification);
 const table = {};
 </script>
