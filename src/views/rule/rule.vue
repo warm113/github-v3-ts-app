@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <a-button type="primary" ghost>aaaa</a-button>
+  <div class="rule">
+    <div class="addBtn">
+      <a-button type="primary" ghost>添加</a-button>
+    </div>
+    <page-content :table="table" />
   </div>
 </template>
 
