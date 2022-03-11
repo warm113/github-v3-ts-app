@@ -17,6 +17,6 @@ defineProps({
     },
   },
 });
-const pageInfo = reactive()
+const pageInfo = reactive();
 </script>
 <style scoped lang="scss"></style>
