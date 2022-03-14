@@ -8,6 +8,9 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  slotList: {
+    type: Array,
+  },
   // pageInfo: {
   //   type: Object,
   //   default: () => {
@@ -39,7 +42,7 @@ const pageInfo: pageType = reactive({
   showSizeChanger: true,
 });
 const emits = defineEmits('update:data');
-const { table } = toRefs(props);
+const { table, slotList } = toRefs(props);
 console.log(table.data);
 const getPageData = async (queryInfo: any = {}) => {
   // await ruleStore.getGroupData({
@@ -85,7 +88,7 @@ const handleTableChange = () => {
 </script>
 <template>
   <div class="hyTable">
-    <hy-table :table="table" v-model:page="pageInfo">
+    <hy-table :table="table" v-model:page="pageInfo" :slotList="slotList">
       <template #state="scope">
         {{ scope.state === 1 ? '开启' : '关闭' }}
       </template>

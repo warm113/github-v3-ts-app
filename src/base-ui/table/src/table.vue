@@ -17,6 +17,9 @@ const props = defineProps({
       };
     },
   },
+  slotList: {
+    type: Array,
+  },
 });
 const { table } = toRefs(props);
 defineEmits(['update:page']);
@@ -33,9 +36,7 @@ const handleTableChange = (pagination, filters, sorter) => {
       :pagination="page"
       @change="handleTableChange"
       ><!--  :loading="tableLoading" -->
-      <template #bodyCell="{ column, record }">
-      
-      </template>
+      <template #bodyCell="{ column, record }"> </template>
     </a-table>
   </div>
 </template>
