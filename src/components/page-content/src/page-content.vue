@@ -15,6 +15,8 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 import HyTable from '@/base-ui/table';
+import useRuleStore from '@/store/rule';
+const ruleStore = useRuleStore();
 defineProps({
   table: {
     type: Object,
@@ -40,6 +42,7 @@ defineProps({
   },
 });
 const getPageData = (queryInfo: any = {}) => {
+  console.log(ruleStore.getGroupData);
   // if (!isQuery) return;
   // store.dispatch('system/getPageListAction', {
   //   pageName: props.pageName,
