@@ -33,6 +33,9 @@ const handleTableChange = (pagination, filters, sorter) => {
       :pagination="page"
       @change="handleTableChange"
       ><!--  :loading="tableLoading" -->
+      <template #bodyCell="{ column, record }">
+      
+      </template>
     </a-table>
   </div>
 </template>
