@@ -4,7 +4,7 @@
       :data-source="table.data"
       :columns="table.columns"
       rowKey="id"
-      :pagination="pageInfo"
+      :pagination="page"
       @change="handleTableChange"
       ><!--  :loading="tableLoading" -->
     </a-table>
@@ -22,7 +22,7 @@ defineProps({
       };
     },
   },
-  pageInfo: {
+  page: {
     type: Object,
     default: () => {
       return {
@@ -36,8 +36,9 @@ defineProps({
     },
   },
 });
-const handleTableChange = () => {
-  console.log('handleTableChange');
+defineEmits(['update:page']);
+const handleTableChange = (pagination, filters, sorter) => {
+  console.log(pagination);
 };
 </script>
 <style lang="scss"></style>

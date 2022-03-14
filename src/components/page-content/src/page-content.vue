@@ -1,17 +1,20 @@
 <template>
   <div class="hyTable">
-    <a-table
+    <!-- <a-table
       :data-source="table.data"
       :columns="table.columns"
       rowKey="id"
       :pagination="pageInfo"
       @change="handleTableChange"
-      ><!--  :loading="tableLoading" -->
-    </a-table>
+      :loading="tableLoading" 
+      >
+    </a-table> -->
+    <hy-table :table="table" v-model:page="pageInfo"></hy-table>
   </div>
 </template>
 <script setup lang="ts">
 import { defineProps } from 'vue';
+import HyTable from '@/base-ui/table';
 defineProps({
   table: {
     type: Object,
