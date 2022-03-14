@@ -22,7 +22,22 @@ const props = defineProps({
   //   },
   // },
 });
-const pageInfo = reactive({});
+type pageType = {
+  total: number;
+  pageSize: number;
+  current: number;
+  showTotal?: FN;
+  showQuickJumper?: boolean;
+  showSizeChanger?: boolean;
+};
+const pageInfo: pageType = reactive({
+  total: 0,
+  pageSize: 10,
+  current: 1,
+  showTotal: (total) => `共 ${total} 条数据`,
+  showQuickJumper: true,
+  showSizeChanger: true,
+});
 const emits = defineEmits('update:data');
 const { table } = toRefs(props);
 console.log(table.data);
