@@ -3,7 +3,11 @@
     <div class="py-5">
       <a-button type="primary" ghost>添加</a-button>
     </div>
-    <page-content :table="table" v-model:data="table.data" />
+    <page-content
+      :table="table"
+      v-model:data="table.data"
+      :slotList="slotList"
+    />
   </div>
 </template>
 
@@ -18,6 +22,11 @@ const table = reactive({
   columns,
   data: ruleStore.groupList,
 });
+const slotList = columns.reduce((prev, cur, index) => {
+  cur.scopedSlots && prev.push(cur.scopedSlots.customRender);
+  return prev;
+}, []);
+console.log(slotList);
 </script>
 
 <style lang="scss" scoped></style>
