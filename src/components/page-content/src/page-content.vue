@@ -42,11 +42,12 @@ defineProps({
   },
 });
 const getPageData = async (queryInfo: any = {}) => {
+  console.log('111');
   await ruleStore.getGroupData({
     current: 1,
     size: 10,
   });
-  console.log(ruleStore.groupList);
+  console.log(table.data);
   // console.log(ruleStore.getGroupData);
   // if (!isQuery) return;
   // store.dispatch('system/getPageListAction', {
