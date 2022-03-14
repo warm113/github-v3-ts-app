@@ -22,7 +22,7 @@ const props = defineProps({
   },
 });
 const { table, slotList } = toRefs(props);
-console.log(slotList);
+console.log(slotList.value);
 defineEmits(['update:page']);
 const handleTableChange = (pagination, filters, sorter) => {
   console.log(pagination);
@@ -31,7 +31,7 @@ const handleTableChange = (pagination, filters, sorter) => {
 <template>
   <div class="hyTable">
     <slot name="header"></slot>
-    {{ soltList }}
+    {{ soltList }}dasdasd
     <a-table
       :data-source="table.data"
       :columns="table.columns"
