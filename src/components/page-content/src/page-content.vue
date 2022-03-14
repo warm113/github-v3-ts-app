@@ -43,7 +43,6 @@ const pageInfo: pageType = reactive({
 });
 const emits = defineEmits('update:data');
 const { table, slotList } = toRefs(props);
-console.log(table.data);
 const getPageData = async (queryInfo: any = {}) => {
   // await ruleStore.getGroupData({
   //   current: 1,
@@ -67,7 +66,6 @@ const getPageData = async (queryInfo: any = {}) => {
 
   emits('update:data', ruleStore.groupList);
   // table.data = ruleStore.groupList;
-  console.log(table.data);
   // console.log(ruleStore.getGroupData);
   // if (!isQuery) return;
   // store.dispatch('system/getPageListAction', {
@@ -88,6 +86,7 @@ const handleTableChange = () => {
 </script>
 <template>
   <div class="hyTable">
+    <!-- {{ slotList }} -->
     <hy-table :table="table" v-model:page="pageInfo" :slotList="slotList">
       <!-- <template #state="scope">
         sdsdsd
