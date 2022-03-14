@@ -93,7 +93,7 @@ const handleTableChange = () => {
         {{ scope.state === 1 ? '开启' : '关闭' }}
       </template> -->
       <template #header> header </template>
-      <template #state> 开启 </template>
+      <template #[item] v-for="item in slotList"> 开启 </template>
     </hy-table>
   </div>
 </template>
