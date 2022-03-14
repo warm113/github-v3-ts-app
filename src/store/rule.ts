@@ -26,7 +26,7 @@ const useRuleStore = defineStore({
     //     resolve();
     //   });
     // },
-    setGroupList(payload: array) {
+    setGroupList(payload: any) {
       this.groupList = payload;
     },
   },

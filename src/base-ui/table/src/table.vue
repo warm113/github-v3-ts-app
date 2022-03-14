@@ -1,5 +1,6 @@
 <template>
   <div class="hyTable">
+    {{ table.data }}
     <a-table
       :data-source="table.data"
       :columns="table.columns"
@@ -12,7 +13,7 @@
 </template>
 <script setup lang="ts">
 import { defineProps } from 'vue';
-defineProps({
+const props = defineProps({
   table: {
     type: Object,
     default: () => {
@@ -36,6 +37,7 @@ defineProps({
     },
   },
 });
+const { table } = toRefs(props);
 defineEmits(['update:page']);
 const handleTableChange = (pagination, filters, sorter) => {
   console.log(pagination);
