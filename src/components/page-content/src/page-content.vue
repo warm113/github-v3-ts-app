@@ -41,8 +41,13 @@ defineProps({
     },
   },
 });
-const getPageData = (queryInfo: any = {}) => {
-  console.log(ruleStore.getGroupData);
+const getPageData = async (queryInfo: any = {}) => {
+  await ruleStore.getGroupData({
+    current: 1,
+    size: 10,
+  });
+  console.log(ruleStore.groupList);
+  // console.log(ruleStore.getGroupData);
   // if (!isQuery) return;
   // store.dispatch('system/getPageListAction', {
   //   pageName: props.pageName,

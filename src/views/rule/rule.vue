@@ -12,10 +12,12 @@ import columns from './columns';
 // import api from '@/api';
 const $api = inject('$api');
 // console.log(api.postVerification);
-const table = {
+import useRuleStore from '@/store/rule';
+const ruleStore = useRuleStore();
+const table = reactive({
   columns,
-  data: [],
-};
+  data: ruleStore.groupList,
+});
 </script>
 
 <style lang="scss" scoped></style>
