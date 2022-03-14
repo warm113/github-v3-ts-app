@@ -17,7 +17,7 @@ import { defineProps } from 'vue';
 import HyTable from '@/base-ui/table';
 import useRuleStore from '@/store/rule';
 const ruleStore = useRuleStore();
-defineProps({
+const props = defineProps({
   table: {
     type: Object,
     default: () => {
@@ -41,12 +41,21 @@ defineProps({
     },
   },
 });
+const { table } = toRefs(props);
+// console.log(table);
 const getPageData = async (queryInfo: any = {}) => {
   console.log('111');
-  await ruleStore.getGroupData({
-    current: 1,
-    size: 10,
-  });
+  // await ruleStore.getGroupData({
+  //   current: 1,
+  //   size: 10,
+  // });
+  ruleStore.setGroupList([
+    { id: 91, groupName: '测试消息通知', num: 4, state: 1 },
+    { id: 88, groupName: '关闭考勤组4', num: 1, state: 1 },
+    { id: 87, groupName: '测试关闭考勤组3', num: 5, state: 1 },
+    { id: 86, groupName: '测试关闭考勤组2', num: 1, state: 1 },
+    { id: 85, groupName: '测试关闭考勤组1', num: 4, state: 1 },
+  ]);
   console.log(table.data);
   // console.log(ruleStore.getGroupData);
   // if (!isQuery) return;
