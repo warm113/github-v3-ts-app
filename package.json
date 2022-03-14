@@ -71,6 +71,7 @@
         "@vueuse/core",
         "ant-design-vue/es",
         "ant-design-vue/es/button/style/css",
+        "ant-design-vue/es/config-provider/style/css",
         "ant-design-vue/es/locale/zh_CN",
         "ant-design-vue/es/table/style/css",
         "axios",

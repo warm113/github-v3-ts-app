@@ -6,9 +6,9 @@ const locale = zhCN;
 
 <template>
   <div class="m-5">
-    <el-config-provider :locale="locale">
+    <a-config-provider :locale="locale">
       <router-view></router-view>
-    </el-config-provider>
+    </a-config-provider>
   </div>
   <!-- <TheFooter></TheFooter> -->
 </template>
