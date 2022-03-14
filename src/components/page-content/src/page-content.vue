@@ -86,17 +86,14 @@ const handleTableChange = () => {
 </script>
 <template>
   <div class="hyTable">
-    {{ slotList }}
     <hy-table :table="table" v-model:page="pageInfo" :slotList="slotList">
       <!-- <template #state="scope">
         sdsdsd
         {{ scope.state === 1 ? '开启' : '关闭' }}
       </template> -->
-      <template #header>
-        header
-        <!-- {{ scope.state === 1 ? '开启' : '关闭' }} -->
-      </template>
-      <template #state>
+      <template #header> header </template>
+      <template #state="scope">
+        {{ scope }}
         开启
         <!-- {{ scope.state === 1 ? '开启' : '关闭' }} -->
       </template>

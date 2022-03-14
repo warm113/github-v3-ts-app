@@ -22,7 +22,7 @@ const props = defineProps({
   },
 });
 const { table, slotList } = toRefs(props);
-console.log(slotList.value);
+// console.log(props.slotList);
 defineEmits(['update:page']);
 const handleTableChange = (pagination, filters, sorter) => {
   console.log(pagination);
@@ -31,7 +31,6 @@ const handleTableChange = (pagination, filters, sorter) => {
 <template>
   <div class="hyTable">
     <slot name="header"></slot>
-    {{ soltList }}dasdasd
     <a-table
       :data-source="table.data"
       :columns="table.columns"
@@ -39,16 +38,13 @@ const handleTableChange = (pagination, filters, sorter) => {
       :pagination="page"
       @change="handleTableChange"
       ><!--  :loading="tableLoading" -->
-      <!-- <template #bodyCell="{ column, record }">
-        {{ soltList }}
-        <template v-for="item in soltList">
-          {{ item }}
-          <template v-if="column.key === item">
-            1
-            <slot :name="item"></slot>
-          </template>
+      <template #bodyCell="{ column, record }">
+        <template v-for="item in slotList">
+          <!-- <template v-if="column.key == item"> -->
+          <slot :name="item" ></slot>
+          <!-- </template> -->
         </template>
-      </template> -->
+      </template>
     </a-table>
   </div>
 </template>
