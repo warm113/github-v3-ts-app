@@ -39,11 +39,12 @@ const handleTableChange = (pagination, filters, sorter) => {
       @change="handleTableChange"
       ><!--  :loading="tableLoading" -->
       <template #bodyCell="{ column, record }">
-        <template v-for="item in slotList">
+        <template v-if="column.key == 'state'">1111</template>
+        <!-- <template v-for="item in slotList">
           <template v-if="column.key == item">
             <slot name="item"></slot>
           </template>
-        </template>
+        </template> -->
       </template>
     </a-table>
   </div>

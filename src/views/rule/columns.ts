@@ -21,10 +21,10 @@ const columns = [
   },
   {
     title: '当前状态',
-    dataIndex: 'state',
+    // dataIndex: 'state',
     key: 'state',
     align: 'center',
-    scopedSlots: { customRender: 'state' },
+    // scopedSlots: { customRender: 'state' },
   },
   {
     title: '操作',
