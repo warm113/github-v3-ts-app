@@ -29,6 +29,7 @@ const handleTableChange = (pagination, filters, sorter) => {
 </script>
 <template>
   <div class="hyTable">
+    <slot name="header"></slot>
     <a-table
       :data-source="table.data"
       :columns="table.columns"
@@ -36,7 +37,9 @@ const handleTableChange = (pagination, filters, sorter) => {
       :pagination="page"
       @change="handleTableChange"
       ><!--  :loading="tableLoading" -->
-      <template #bodyCell="{ column, record }"> </template>
+      <template #bodyCell="{ column, record }">
+        <!-- <slot name="state" v-if="column.key == 'state'"></slot> -->
+      </template>
     </a-table>
   </div>
 </template>
