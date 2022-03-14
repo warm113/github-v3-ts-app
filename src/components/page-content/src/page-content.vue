@@ -9,6 +9,7 @@
       :loading="tableLoading" 
       >
     </a-table> -->
+    {{ table.data }}
     <hy-table :table="table" v-model:page="pageInfo"></hy-table>
   </div>
 </template>
@@ -20,12 +21,12 @@ const ruleStore = useRuleStore();
 const props = defineProps({
   table: {
     type: Object,
-    default: () => {
-      return {
-        columns: [],
-        data: [],
-      };
-    },
+    // default: () => {
+    //   return {
+    //     columns: [],
+    //     data: [],
+    //   };
+    // },
   },
   pageInfo: {
     type: Object,
@@ -56,6 +57,7 @@ const getPageData = async (queryInfo: any = {}) => {
     { id: 86, groupName: '测试关闭考勤组2', num: 1, state: 1 },
     { id: 85, groupName: '测试关闭考勤组1', num: 4, state: 1 },
   ]);
+  table.data = ruleStore.groupList;
   console.log(table.data);
   // console.log(ruleStore.getGroupData);
   // if (!isQuery) return;

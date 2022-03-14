@@ -16,12 +16,12 @@ import { defineProps } from 'vue';
 const props = defineProps({
   table: {
     type: Object,
-    default: () => {
-      return {
-        columns: [],
-        data: [],
-      };
-    },
+    // default: () => {
+    //   return {
+    //     columns: [],
+    //     data: [],
+    //   };
+    // },
   },
   page: {
     type: Object,
