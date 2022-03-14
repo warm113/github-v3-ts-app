@@ -97,9 +97,10 @@ const handleTableChange = () => {
         header
         <!-- {{ scope.state === 1 ? '开启' : '关闭' }} -->
       </template>
-      <!-- <template #state="scope">
-        {{ scope.state === 1 ? '开启' : '关闭' }}
-      </template> -->
+      <template #state>
+        开启
+        <!-- {{ scope.state === 1 ? '开启' : '关闭' }} -->
+      </template>
     </hy-table>
   </div>
 </template>
