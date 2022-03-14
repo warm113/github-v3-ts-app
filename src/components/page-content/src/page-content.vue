@@ -1,15 +1,5 @@
 <template>
   <div class="hyTable">
-    <!-- <a-table
-      :data-source="table.data"
-      :columns="table.columns"
-      rowKey="id"
-      :pagination="pageInfo"
-      @change="handleTableChange"
-      :loading="tableLoading" 
-      >
-    </a-table> -->
-    {{ table.data }}
     <hy-table :table="table" v-model:page="pageInfo"></hy-table>
   </div>
 </template>
@@ -21,12 +11,7 @@ const ruleStore = useRuleStore();
 const props = defineProps({
   table: {
     type: Object,
-    // default: () => {
-    //   return {
-    //     columns: [],
-    //     data: [],
-    //   };
-    // },
+    default: () => ({}),
   },
   pageInfo: {
     type: Object,
@@ -42,7 +27,7 @@ const props = defineProps({
     },
   },
 });
-const emits = =defineEmits('update:table')
+const emits = defineEmits('update:data');
 const { table } = toRefs(props);
 console.log(table.data);
 const getPageData = async (queryInfo: any = {}) => {
@@ -57,9 +42,9 @@ const getPageData = async (queryInfo: any = {}) => {
     { id: 86, groupName: '测试关闭考勤组2', num: 1, state: 1 },
     { id: 85, groupName: '测试关闭考勤组1', num: 4, state: 1 },
   ]);
-  emits('update:table',ruleStore.groupList),
-  // table.data = ruleStore.groupList;
-  console.log(table.data);
+  emits('update:data', ruleStore.groupList),
+    // table.data = ruleStore.groupList;
+    console.log(table.data);
   // console.log(ruleStore.getGroupData);
   // if (!isQuery) return;
   // store.dispatch('system/getPageListAction', {

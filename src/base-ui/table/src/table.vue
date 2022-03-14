@@ -1,6 +1,5 @@
 <template>
   <div class="hyTable">
-    {{ table.data }}
     <a-table
       :data-source="table.data"
       :columns="table.columns"
@@ -16,12 +15,6 @@ import { defineProps } from 'vue';
 const props = defineProps({
   table: {
     type: Object,
-    // default: () => {
-    //   return {
-    //     columns: [],
-    //     data: [],
-    //   };
-    // },
   },
   page: {
     type: Object,
