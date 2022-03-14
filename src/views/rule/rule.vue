@@ -8,10 +8,14 @@
 </template>
 
 <script setup lang="ts">
+import columns from './columns';
 // import api from '@/api';
 const $api = inject('$api');
 // console.log(api.postVerification);
-const table = {};
+const table = {
+  columns,
+  data: [],
+};
 </script>
 
 <style lang="scss" scoped></style>
