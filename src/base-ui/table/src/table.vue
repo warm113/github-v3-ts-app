@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
+
 const props = defineProps({
   table: {
     type: Object,
@@ -11,7 +12,7 @@ const props = defineProps({
         total: 0,
         pageSize: 10,
         current: 1,
-        showTotal: (total) => `共 ${total} 条数据`,
+        showTotal: (total: number) => `共 ${total} 条数据`,
         showQuickJumper: true,
         showSizeChanger: true,
       };
@@ -21,7 +22,7 @@ const props = defineProps({
     type: Array,
   },
 });
-const { table, slotList } = toRefs(props);
+const { slotList } = toRefs(props);
 // console.log(props.slotList);
 defineEmits(['update:page']);
 const handleTableChange = (pagination, filters, sorter) => {
@@ -31,11 +32,10 @@ const handleTableChange = (pagination, filters, sorter) => {
 <template>
   <div class="hyTable">
     <slot name="header"></slot>
-    {{ table.columns }}
     <a-table
       :data-source="table.data"
       :columns="table.columns"
-      rowKey="id"
+      row-key="id"
       :pagination="page"
       @change="handleTableChange"
       ><!--  :loading="tableLoading" -->

@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
+import { Fn } from '@vueuse/core';
 import HyTable from '@/base-ui/table';
 import useRuleStore from '@/store/rule';
+import { pageType } from './types';
+
 const ruleStore = useRuleStore();
 const props = defineProps({
   table: {
@@ -11,37 +14,17 @@ const props = defineProps({
   slotList: {
     type: Array,
   },
-  // pageInfo: {
-  //   type: Object,
-  //   default: () => {
-  //     return {
-  //       total: 0,
-  //       pageSize: 10,
-  //       current: 1,
-  //       showTotal: (total) => `共 ${total} 条数据`,
-  //       showQuickJumper: true,
-  //       showSizeChanger: true,
-  //     };
-  //   },
-  // },
 });
-type pageType = {
-  total: number;
-  pageSize: number;
-  current: number;
-  showTotal?: FN;
-  showQuickJumper?: boolean;
-  showSizeChanger?: boolean;
-};
-const pageInfo: pageType = reactive({
+
+const pageInfo = ref<pageType>({
   total: 0,
   pageSize: 10,
   current: 1,
-  showTotal: (total) => `共 ${total} 条数据`,
+  showTotal: (total: number) => `共 ${total} 条数据`,
   showQuickJumper: true,
   showSizeChanger: true,
 });
-const emits = defineEmits('update:data');
+const emits = defineEmits(['update:data']);
 // const { table } = toRefs(props);
 const getPageData = async (queryInfo: any = {}) => {
   // await ruleStore.getGroupData({
@@ -80,20 +63,17 @@ const getPageData = async (queryInfo: any = {}) => {
 onMounted(() => {
   getPageData();
 });
-const handleTableChange = () => {
-  console.log('handleTableChange');
-};
 </script>
 <template>
   <div class="hyTable">
-    {{ slotList }}
-    <hy-table :table="table" v-model:page="pageInfo" :slotList="slotList">
+    <hy-table v-model:page="pageInfo" :table="table" :slot-list="slotList">
       <!-- <template #state="scope">
         sdsdsd
         {{ scope.state === 1 ? '开启' : '关闭' }}
       </template> -->
       <template #header> header </template>
-      <template #[item] v-for="item in slotList"> 开启 </template>
+      <template #state> s </template>
+      <!-- <template v-for="item in slotList" :key="item" #[item]> 开启 </template> -->
     </hy-table>
   </div>
 </template>
