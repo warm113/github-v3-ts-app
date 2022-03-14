@@ -1,15 +1,3 @@
-<template>
-  <div class="hyTable">
-    <a-table
-      :data-source="table.data"
-      :columns="table.columns"
-      rowKey="id"
-      :pagination="page"
-      @change="handleTableChange"
-      ><!--  :loading="tableLoading" -->
-    </a-table>
-  </div>
-</template>
 <script setup lang="ts">
 import { defineProps } from 'vue';
 const props = defineProps({
@@ -36,4 +24,16 @@ const handleTableChange = (pagination, filters, sorter) => {
   console.log(pagination);
 };
 </script>
+<template>
+  <div class="hyTable">
+    <a-table
+      :data-source="table.data"
+      :columns="table.columns"
+      rowKey="id"
+      :pagination="page"
+      @change="handleTableChange"
+      ><!--  :loading="tableLoading" -->
+    </a-table>
+  </div>
+</template>
 <style lang="scss"></style>

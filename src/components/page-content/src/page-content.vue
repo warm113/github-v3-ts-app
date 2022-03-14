@@ -1,8 +1,3 @@
-<template>
-  <div class="hyTable">
-    <hy-table :table="table" v-model:page="pageInfo"></hy-table>
-  </div>
-</template>
 <script setup lang="ts">
 import { defineProps } from 'vue';
 import HyTable from '@/base-ui/table';
@@ -42,9 +37,9 @@ const getPageData = async (queryInfo: any = {}) => {
     { id: 86, groupName: '测试关闭考勤组2', num: 1, state: 1 },
     { id: 85, groupName: '测试关闭考勤组1', num: 4, state: 1 },
   ]);
-  emits('update:data', ruleStore.groupList),
-    // table.data = ruleStore.groupList;
-    console.log(table.data);
+  emits('update:data', ruleStore.groupList);
+  // table.data = ruleStore.groupList;
+  console.log(table.data);
   // console.log(ruleStore.getGroupData);
   // if (!isQuery) return;
   // store.dispatch('system/getPageListAction', {
@@ -63,4 +58,9 @@ const handleTableChange = () => {
   console.log('handleTableChange');
 };
 </script>
+<template>
+  <div class="hyTable">
+    <hy-table :table="table" v-model:page="pageInfo"></hy-table>
+  </div>
+</template>
 <style lang="scss"></style>
