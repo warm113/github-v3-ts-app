@@ -8,20 +8,21 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
-  pageInfo: {
-    type: Object,
-    default: () => {
-      return {
-        total: 0,
-        pageSize: 10,
-        current: 1,
-        showTotal: (total) => `共 ${total} 条数据`,
-        showQuickJumper: true,
-        showSizeChanger: true,
-      };
-    },
-  },
+  // pageInfo: {
+  //   type: Object,
+  //   default: () => {
+  //     return {
+  //       total: 0,
+  //       pageSize: 10,
+  //       current: 1,
+  //       showTotal: (total) => `共 ${total} 条数据`,
+  //       showQuickJumper: true,
+  //       showSizeChanger: true,
+  //     };
+  //   },
+  // },
 });
+const pageInfo = reactive({});
 const emits = defineEmits('update:data');
 const { table } = toRefs(props);
 console.log(table.data);
@@ -31,12 +32,21 @@ const getPageData = async (queryInfo: any = {}) => {
   //   size: 10,
   // });
   ruleStore.setGroupList([
-    { id: 91, groupName: '测试消息通知', num: 4, state: 1 },
-    { id: 88, groupName: '关闭考勤组4', num: 1, state: 1 },
-    { id: 87, groupName: '测试关闭考勤组3', num: 5, state: 1 },
-    { id: 86, groupName: '测试关闭考勤组2', num: 1, state: 1 },
-    { id: 85, groupName: '测试关闭考勤组1', num: 4, state: 1 },
+    { id: 93, groupName: '测试消息通知', num: 4, state: 1 },
+    { id: 92, groupName: '关闭考勤组4', num: 1, state: 1 },
+    { id: 91, groupName: '测试关闭考勤组3', num: 5, state: 1 },
+    { id: 90, groupName: '测试关闭考勤组2', num: 1, state: 1 },
+    { id: 89, groupName: '测试关闭考勤组1', num: 4, state: 1 },
+    { id: 88, groupName: '测试关闭考勤组4', num: 4, state: 1 },
+    { id: 87, groupName: '测试关闭考勤组5', num: 4, state: 1 },
+    { id: 86, groupName: '测试关闭考勤组6', num: 4, state: 1 },
+    { id: 85, groupName: '测试关闭考勤组7', num: 4, state: 1 },
+    { id: 84, groupName: '测试关闭考勤组8', num: 4, state: 1 },
+    { id: 83, groupName: '测试关闭考勤组9', num: 4, state: 1 },
+    { id: 82, groupName: '测试关闭考勤组10', num: 4, state: 1 },
+    { id: 81, groupName: '测试关闭考勤组11', num: 4, state: 1 },
   ]);
+
   emits('update:data', ruleStore.groupList);
   // table.data = ruleStore.groupList;
   console.log(table.data);

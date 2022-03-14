@@ -4,10 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AButton: typeof import('ant-design-vue/es')['Button']
     AConfigProvider: typeof import('ant-design-vue/es')['ConfigProvider']
-    ATable: typeof import('ant-design-vue/es')['Table']
-    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     EnProcess: typeof import('./components/EnProcess.md')['default']
     PageContent: typeof import('./components/page-content/src/page-content.vue')['default']
     TheFooter: typeof import('./components/TheFooter.vue')['default']
