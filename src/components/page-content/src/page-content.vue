@@ -85,7 +85,11 @@ const handleTableChange = () => {
 </script>
 <template>
   <div class="hyTable">
-    <hy-table :table="table" v-model:page="pageInfo"></hy-table>
+    <hy-table :table="table" v-model:page="pageInfo">
+      <template #state="scope">
+        {{ scope.state === 1 ? '开启' : '关闭' }}
+      </template>
+    </hy-table>
   </div>
 </template>
 <style lang="scss"></style>

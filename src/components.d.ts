@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AConfigProvider: typeof import('ant-design-vue/es')['ConfigProvider']
     EnProcess: typeof import('./components/EnProcess.md')['default']
     PageContent: typeof import('./components/page-content/src/page-content.vue')['default']
     TheFooter: typeof import('./components/TheFooter.vue')['default']
