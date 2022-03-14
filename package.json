@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^7.5.5",
-    "ant-design-vue": "^2.2.8",
+    "ant-design-vue": "^3.0.0-alpha.15",
     "axios": "^0.25.0",
     "element-plus": "^2.0.1",
     "nprogress": "^0.2.0",
@@ -61,9 +61,7 @@
     "vue-tsc": "^0.29.8"
   },
   "lint-staged": {
-    "*.{ts,js,vue}": [
-      "eslint"
-    ]
+    "*.{ts,js,vue}": ["eslint"]
   },
   "vite": {
     "optimizeDeps": {

@@ -40,8 +40,14 @@ const handleTableChange = (pagination, filters, sorter) => {
       @change="handleTableChange"
       ><!--  :loading="tableLoading" -->
       <template #bodyCell="{ column, record }">
-        <template v-if="column.key === 'state'">
+        <!-- {{ column }} -->
+        <!-- <template v-if="column.key === 'state'">
           <a>22222</a>
+        </template> -->
+        <template v-for="item in slotList">
+          <template v-if="column.key == item">
+            <slot :name="item"></slot>
+          </template>
         </template>
       </template>
     </a-table>
