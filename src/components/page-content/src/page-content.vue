@@ -42,10 +42,10 @@ const props = defineProps({
     },
   },
 });
+const emits = =defineEmits('update:table')
 const { table } = toRefs(props);
-// console.log(table);
+console.log(table.data);
 const getPageData = async (queryInfo: any = {}) => {
-  console.log('111');
   // await ruleStore.getGroupData({
   //   current: 1,
   //   size: 10,
@@ -57,7 +57,8 @@ const getPageData = async (queryInfo: any = {}) => {
     { id: 86, groupName: '测试关闭考勤组2', num: 1, state: 1 },
     { id: 85, groupName: '测试关闭考勤组1', num: 4, state: 1 },
   ]);
-  table.data = ruleStore.groupList;
+  emits('update:table',ruleStore.groupList),
+  // table.data = ruleStore.groupList;
   console.log(table.data);
   // console.log(ruleStore.getGroupData);
   // if (!isQuery) return;
@@ -70,7 +71,9 @@ const getPageData = async (queryInfo: any = {}) => {
   //   },
   // });
 };
-getPageData();
+onMounted(() => {
+  getPageData();
+});
 const handleTableChange = () => {
   console.log('handleTableChange');
 };

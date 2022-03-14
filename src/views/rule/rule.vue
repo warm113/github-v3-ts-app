@@ -3,7 +3,7 @@
     <div class="py-5">
       <a-button type="primary" ghost>添加</a-button>
     </div>
-    <page-content :table="table" />
+    <page-content :table="table" v-model:data="table.data" />
   </div>
 </template>
 
