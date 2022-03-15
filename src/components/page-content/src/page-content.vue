@@ -73,6 +73,7 @@ onMounted(() => {
       </template> -->
       <template #header> header </template>
       <template #state> s </template>
+      <template #num="scope">{{ scope }} </template>
       <!-- <template v-for="item in slotList" :key="item" #[item]> 开启 </template> -->
     </hy-table>
   </div>
